@@ -2,7 +2,9 @@
 
 This project implements a **2D Reaction-Diffusion simulation** using the **Gray-Scott model**, a mathematical model known for producing complex and dynamic patterns. This simulation, inspired by the work of Karl Sims, explores the interactions between two virtual chemicals, A and B, as they react and diffuse across a grid.
 
-![diff](https://github.com/user-attachments/assets/41f99495-b773-428d-bf73-a72c255d7780)
+<div align="center">
+  <img src="https://github.com/user-attachments/assets/41f99495-b773-428d-bf73-a72c255d7780" alt="diff" />
+</div>
 
 ## Project Overview
 
