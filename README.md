@@ -1,4 +1,4 @@
-# 🎨 creative coding projects inspired by daniel shiffman
+# 🎨 creative coding projects inspired by the coding train!
 
 welcome! 👋 this is a collection of my **creative coding** projects built predominantly using the **p5.js** library, inspired by daniel shiffman’s [coding train](https://www.youtube.com/c/TheCodingTrain) challenges and tutorials. daniel’s work has been a huge influence on my journey in visual and interactive programming since i was in middle school! i love exploring how code can create beautiful, unexpected art.
 
