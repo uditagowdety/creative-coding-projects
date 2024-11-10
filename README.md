@@ -8,11 +8,11 @@ welcome! 👋 this is a collection of my **creative coding** projects built pred
 
 here are a few of the future explorations in generative art, simulations, and algorithmic designs i'll be working on (yet to be published here -- stay tuned!):
 
-- 🌌 **[particle systems](https://thecodingtrain.com/learning/nature-of-code/1.1-particles.html)**: an experiment in simulating particle behaviors, inspired by daniel’s particle tutorials
-- 🔄 **[fractal trees](https://thecodingtrain.com/learning/nature-of-code/8.1-intro-fractals.html)**: recursive branching and fractals in javascript, with customizable parameters to grow different types of “trees”
-- 💡 **[perlin noise flow field](https://thecodingtrain.com/learning/nature-of-code/3.6-perlin-noise-flow.html)**: using perlin noise to generate complex, organic patterns and visualize randomness
-- 🌊 **[water ripple simulation](https://thecodingtrain.com/challenges/117-ripple-effect.html)**: a dynamic water ripple effect, experimenting with wave physics and interaction
-- ✨ **[metaballs and blending](https://thecodingtrain.com/challenges/005-metaballs.html)**: simulating fluid shapes that blend and merge, inspired by metaball physics
+- 🌌 **[particle systems]**: an experiment in simulating particle behaviors, inspired by daniel’s particle tutorials
+- 🔄 **[fractal trees]**: recursive branching and fractals in javascript, with customizable parameters to grow different types of “trees”
+- 💡 **[perlin noise flow field]**: using perlin noise to generate complex, organic patterns and visualize randomness
+- 🌊 **[water ripple simulation]**: a dynamic water ripple effect, experimenting with wave physics and interaction
+- ✨ **[metaballs and blending]**: simulating fluid shapes that blend and merge, inspired by metaball physics
 
 ---
 
