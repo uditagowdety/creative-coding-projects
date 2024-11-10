@@ -3,7 +3,8 @@ let minLoops=240;
 function setup(){
     createCanvas(512,512);
     frameRate(60);
-    background(0);
+    background(255);
+    // noStroke();
 }
 
 function draw(){
