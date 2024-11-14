@@ -1,19 +1,19 @@
-let minLoops=240;
+let minLoops=300;
 
 function setup(){
     createCanvas(512,512);
     frameRate(60);
-    background(255);
+    background(0);
     // noStroke();
 }
 
 function draw(){
     let x=width/2;
     let y=width/2;
-    let d=width/8;
-    // let r=width/4;
+    let d=width/7;
+    let r=width/4;
 
-    let r = (width / 4) * sin((frameCount / minLoops) * TWO_PI);
+    // let r = (width / 4) * sin((frameCount / minLoops) * TWO_PI);
 
     fill(
         178+177*sin((frameCount/minLoops)*TWO_PI),
