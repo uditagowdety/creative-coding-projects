@@ -1,60 +1,51 @@
 let video;
-let bodyPose;
-let poses=[];
-let connections;
+let handPose;
+let hands = [];
+let painting;
+let px = 0;
+let py = 0;
 
-function preload(){
-  bodyPose=ml5.bodyPose("MoveNet",{flipped:true} );
+function preload() {
+  handPose = ml5.handPose({ flipped: true });
 }
 
-function mousePressed(){
-  console.log(poses);
+function mousePressed() {
+  console.log(hands);
+  setTimeout(() => save("emitter.png"), 2000);
+
 }
 
-function gotPoses(results){
-  poses=results;
+function gotHands(results) {
+  hands = results;
 }
 
-function setup(){
-  createCanvas(640,480);
-  video=createCapture(VIDEO,{flipped:true});
+function setup() {
+  createCanvas(640, 480);
+  painting = createGraphics(640, 480);
+  painting.clear();
+
+  video = createCapture(VIDEO, { flipped: true });
   video.hide();
-
-  bodyPose.detectStart(video, gotPoses);
-  connections=bodyPose.getSkeleton();
-  console.log(connections);
+  handPose.detectStart(video, gotHands);
 }
 
-function draw(){
-  image(video,0,0);
-  
-  if(poses.length>0){
-    let pose=poses[0];
-    let poseX=pose.nose.x;
-    let poseY=pose.nose.y;
-    fill(255,0,0);
-    circle(poseX,poseY,20);
+function draw() {
+  image(video, 0, 0);
+  if (hands.length > 0) {
+    let hand = hands[0];
+    let index = hand.index_finger_tip;
+    let thumb = hand.thumb_tip;
+    let x = (index.x + thumb.x) * 0.5;
+    let y = (index.y + thumb.y) * 0.5;
     
-    for(let i=0;i<pose.keypoints.length;i++){
-      let keypoint=pose.keypoints[i];
-      fill(0,0,255);
-      circle(keypoint.x,keypoint.y,16);
+    let d = dist(index.x, index.y, thumb.x, thumb.y);
+    if (d < 20) {
+      painting.stroke(255, 255, 0);
+      painting.strokeWeight(8);
+      painting.line(px, py, x, y);
     }
-    
-//     for(let i=0;i<connections.length;i++){
-//       let connection=connections[i];
-//       let a=connection[0];
-//       let b=connection[1];
-      
-//       let keypointA=pose.keypoints[a];
-//       let keypointB=pose.keypoints[b];
-      
-//       stroke(0,255,0);
-//       strokeWeight(5);
-      
-//       line(keypointA.x,keypointA.y,keypointB.x,keypointB.y);
-//     }
+    px = x;
+    py = y;
   }
+  image(painting, 0, 0);
 }
-
-
