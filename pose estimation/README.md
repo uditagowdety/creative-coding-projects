@@ -72,6 +72,10 @@ blazepose was chosen here due to its efficiency for hand tracking and real-time 
 - incorporate hand pose feedback visuals.
 
 ---
-### author
-udita gowdety
-feel free to contribute or raise issues if you'd like to enhance this tool further!
+## 👩‍💻 about me
+
+i’m udita gowdety, an artist and creative developer, exploring the intersections of **art + tech** through code. if you’re into creative coding, let’s connect and share ideas :)
+
+---
+
+*happy coding! 🎉*
