@@ -15,7 +15,7 @@ the tool uses:
 4. **export artwork**: users can save their drawings by clicking the mouse.
 
 ## demo
-![demo screenshot](path/to/demo-screenshot.png)
+![image](https://github.com/user-attachments/assets/0cfbb46f-7df8-44a7-bb7a-a57578764e54)
 
 ## dependencies
 - [p5.js](https://p5js.org) for canvas rendering and video handling
