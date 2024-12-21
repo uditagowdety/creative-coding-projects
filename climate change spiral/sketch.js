@@ -5,7 +5,7 @@ let oneRadius=175;
 let currentRow=1;
 let currentMonth=1;
 let prevAnomaly=0;
-let prevAngle=0;
+// let prevAngle=0;
 
 function preload(){
     data=loadTable("giss-data.csv","csv","header");
@@ -75,6 +75,7 @@ function draw(){
     // beginShape();
     noFill();
     stroke(255);
+    let firstVal=true;
 
     for(let j=0;j<currentRow;j++){
 
@@ -91,6 +92,7 @@ function draw(){
         for (let i=0;i<totalMonths;i++){
             let anomaly=row.get(months[i]);
             if (anomaly!=undefined){
+                anomaly=parseFloat(anomaly);
                 let angle=map(i,0,months.length,0,TWO_PI)-PI/3;
                 let pr=map(prevAnomaly,0,1,zeroRadius,oneRadius);
                 let r=map(anomaly,0,1,zeroRadius,oneRadius);
@@ -102,11 +104,25 @@ function draw(){
                 let x2=pr*cos(angle-PI/6);
                 let y2=pr*sin(angle-PI/6);
 
-                
-                line(x1,y1,x2,y2);
+                if(!firstVal){
+                    let avg=(anomaly+prevAnomaly)*0.5;
+                    let cold=color(0,0,255);
+                    let warm=color(255,0,0);
+                    let zero=color(255,255,255);
+                    let lineColor=zero;
 
+                    if(avg<0){
+                        lineColor=lerpColor(zero,cold,abs(avg));
+                    } else{
+                        lineColor=lerpColor(zero,warm,abs(avg));
+                    }
+                    stroke(lineColor);
+                    line(x1,y1,x2,y2);
+                    // firstVal=false;
+                }
+                firstVal=false;
                 prevAnomaly=anomaly;
-                prevAngle=angle;
+                // prevAngle=angle;
             }
         }
     }
@@ -122,5 +138,6 @@ function draw(){
         }
     }
     
+    // frameRate(10);
     // noLoop();
 }
