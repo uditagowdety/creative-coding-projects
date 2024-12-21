@@ -3,7 +3,7 @@ let months;
 let zeroRadius=100;
 let oneRadius=175;
 let currentRow=1;
-let currentMonth=1;
+let currentMonth=0;
 let prevAnomaly=0;
 // let prevAngle=0;
 
@@ -36,7 +36,7 @@ function draw(){
     circle(0,0,2*zeroRadius);
     fill(255);
     noStroke();
-    text("0*",zeroRadius+10,0)
+    text("0°",zeroRadius+10,0)
 
     noFill();
     stroke(255);
@@ -44,7 +44,7 @@ function draw(){
     circle(0,0,2*oneRadius);
     fill(255);
     noStroke();
-    text("1*",oneRadius+10,0)
+    text("1°",oneRadius+10,0)
 
     noFill();
     stroke(255);
@@ -129,10 +129,10 @@ function draw(){
 
     // endShape();
 
-    currentMonth+=1;
+    currentMonth = currentMonth+3;
     if(currentMonth==months.length){
         currentMonth=0;
-        currentRow+=1;
+        currentRow=currentRow+1;
         if(currentRow==data.getRowCount()){
             noLoop();
         }
