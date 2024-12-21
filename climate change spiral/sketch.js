@@ -2,6 +2,7 @@ let data;
 let months;
 let zeroRadius=50;
 let oneRadius=175;
+let currentRow=0;
 
 function preload(){
     data=loadTable("giss-data.csv","csv","header");
@@ -68,7 +69,8 @@ function draw(){
     noFill();
     stroke(255);
 
-    for(let j=0;j<data.getRowCount();j++){
+    for(let j=0;j<currentRow;j++){
+
         let row=data.getRow(j);
         let year=row.get("Year");
         // textAlign(CENTER, CENTER);
@@ -87,5 +89,9 @@ function draw(){
     }
 
     endShape();
-    noLoop();
+    currentRow+=1;
+    if(currentRow==data.getRowCount()){
+        noLoop();
+    }
+    // noLoop();
 }
