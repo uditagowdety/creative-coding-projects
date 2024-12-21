@@ -1,12 +1,14 @@
 let data;
 let months;
+let zeroRadius=50;
+let oneRadius=150;
 
 function preload(){
     data=loadTable("giss-data.csv","csv","header");
 }
 
 function setup(){
-    createCanvas(600,600);
+    createCanvas(650,650);
     // console.log(data.getColumnCount());
     // console.log(data.getRowCount());
 
@@ -26,18 +28,18 @@ function draw(){
     noFill();
     stroke(255);
     strokeWeight(2);
-    circle(0,0,100);
+    circle(0,0,2*zeroRadius);
     fill(255);
     noStroke();
-    text("0*",54,0)
+    text("0*",zeroRadius+10,0)
 
     noFill();
     stroke(255);
     strokeWeight(2);
-    circle(0,0,300);
+    circle(0,0,2*oneRadius);
     fill(255);
     noStroke();
-    text("1*",154,0)
+    text("1*",oneRadius+10,0)
 
     noFill();
     stroke(255);
@@ -51,7 +53,7 @@ function draw(){
         noStroke();
         fill(255);
         textAlign(CENTER);
-        textSize(30);
+        textSize(24);
         let angle=map(i,0,months.length,0,TWO_PI)-PI/3;
         push();
         let x=264*cos(angle);
@@ -61,4 +63,27 @@ function draw(){
         text(months[i],0,0);
         pop();
     }
+
+    beginShape();
+    noFill();
+    stroke(255);
+
+    for(let j=0;j<data.getRowCount();j++){
+        let row=data.getRow(j);
+        let year=row.get("Year");
+        textAlign(CENTER, CENTER);
+        text(year,0,0);
+        
+        for (let i=0;i<months.length;i++){
+            let anomaly=row.getNum(months[i]);
+            let angle=map(i,0,months.length,0,TWO_PI)-PI/3;
+            let r=map(anomaly,0,1,75,150);
+            let x=r*cos(angle);
+            let y=r*sin(angle);
+            vertex(x,y);
+        }
+    }
+
+    endShape(CLOSE);
+    noLoop();
 }
