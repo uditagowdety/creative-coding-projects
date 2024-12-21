@@ -1,7 +1,7 @@
 let data;
 let months;
 let zeroRadius=50;
-let oneRadius=150;
+let oneRadius=175;
 
 function preload(){
     data=loadTable("giss-data.csv","csv","header");
@@ -71,19 +71,21 @@ function draw(){
     for(let j=0;j<data.getRowCount();j++){
         let row=data.getRow(j);
         let year=row.get("Year");
-        textAlign(CENTER, CENTER);
-        text(year,0,0);
-        
+        // textAlign(CENTER, CENTER);
+        // text(year,0,0);
+
         for (let i=0;i<months.length;i++){
-            let anomaly=row.getNum(months[i]);
-            let angle=map(i,0,months.length,0,TWO_PI)-PI/3;
-            let r=map(anomaly,0,1,75,150);
-            let x=r*cos(angle);
-            let y=r*sin(angle);
-            vertex(x,y);
+            let anomaly=row.get(months[i]);
+            if (anomaly!=undefined){
+                let angle=map(i,0,months.length,0,TWO_PI)-PI/3;
+                let r=map(anomaly,0,1,zeroRadius,oneRadius);
+                let x=r*cos(angle);
+                let y=r*sin(angle);
+                vertex(x,y);
+            }
         }
     }
 
-    endShape(CLOSE);
+    endShape();
     noLoop();
 }
